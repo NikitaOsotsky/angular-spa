@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SpinComponent } from './spin/spin.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SpinComponent } from './spin/spin.component';
     MainComponent,
     FooterComponent,
     SidebarComponent,
-    SpinComponent
+    SpinComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
