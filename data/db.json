@@ -1,5 +1,5 @@
 {
-  "data": [
+  "news": [
     {
       "_id": "5baa1d94ec1e9bc5f57a10d3",
       "picture": "http://placehold.it/32x32",
@@ -160,5 +160,6 @@
       "time": "2017-03-28T10:24:18 -03:00",
       "author": "Admin"
     }
-  ]
+  ],
+  "menu": ["Home", "Docs", "Examples", "About", "News"]
 }
