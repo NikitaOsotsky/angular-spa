@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
-  constructor() { }
+  public menu: any = [
+    '1',
+    '2',
+    '3',
+    '4'
+  ];
+  constructor() {
+  }
 
   ngOnInit() {
   }
