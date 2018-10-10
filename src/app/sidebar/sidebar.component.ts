@@ -8,12 +8,16 @@ import { HttpService} from '../http.service';
   providers: [HttpService]
 })
 export class SidebarComponent implements OnInit {
-  public menu: Array<string> = ['Please, wait...'];
+  public menu: Array<string>;
+  protected isLoaded: boolean;
   constructor(private http: HttpService) {
   }
 
   ngOnInit() {
-    this.http.getData().subscribe((data: Array<string>) => this.menu = data);
+    this.http.getData().subscribe((data: Array<string>) => {
+      this.menu = data;
+      this.isLoaded = true;
+    });
   }
 
 }
