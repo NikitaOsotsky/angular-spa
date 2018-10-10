@@ -12,12 +12,14 @@ export class SidebarComponent implements OnInit {
   protected isLoaded: boolean;
   constructor(private http: HttpService) {
   }
-
+  public getRout(item) {
+    if (item.toLowerCase() === 'home') { return ''; }
+    return ('/' + item.toLowerCase());
+  }
   ngOnInit() {
     this.http.getData().subscribe((data: Array<string>) => {
       this.menu = data;
       this.isLoaded = true;
     });
   }
-
 }
