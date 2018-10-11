@@ -6,7 +6,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  getData() {
+  public getData() {
     return this.http.get('http://172.20.132.174:3005/menu');
   }
 }
