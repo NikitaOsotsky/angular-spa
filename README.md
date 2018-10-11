@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Backend data server
 
-Run `json-server --watch data/news.json --port 3004` for json server. Navigate to `http://localhost:3004/`. The app will automatically reload if you change any of the source files.
+Run `json-server data/db.json` for json server. Navigate to `http://localhost:3005/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

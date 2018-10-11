@@ -1,0 +1,7 @@
+{
+  "port": 3005,
+  "read-only": true,
+  "watch": true,
+  "delay": 1000,
+  "host": "172.20.132.174"
+}
