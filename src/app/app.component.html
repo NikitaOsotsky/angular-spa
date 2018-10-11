@@ -1,3 +1,4 @@
+<app-error [textMessage]="error"></app-error>
 <app-header></app-header>
-<app-main></app-main>
+<app-main (error)="errorHandler($event)"></app-main>
 <app-footer></app-footer>
