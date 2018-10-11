@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
   @Output() error: EventEmitter<any> = new EventEmitter();
   public menu: Array<string>;
   protected isLoaded: boolean;
+
   constructor(private http: HttpService) {
   }
 
