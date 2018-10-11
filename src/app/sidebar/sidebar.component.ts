@@ -17,9 +17,10 @@ export class SidebarComponent implements OnInit {
   constructor(private http: HttpService) {
   }
 
-  public getRout(item) {
+  public getRout(item: string) {
     if (item.toLowerCase() === 'home') { return ''; }
-    return ('/' + item.toLowerCase());
+    const value: string = item.toLowerCase();
+    return ('/' + value);
   }
 
   ngOnInit() {
