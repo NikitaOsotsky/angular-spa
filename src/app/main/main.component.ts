@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  @Output() error: EventEmitter<any> = new EventEmitter();
   constructor() { }
+
+  errorHandler(event: any) {
+    this.error.emit(event);
+  }
 
   ngOnInit() {
   }
