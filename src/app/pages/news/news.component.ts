@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {HttpService} from '../../http.service';
 
 @Component({
   selector: 'app-news',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+  @Output() error: EventEmitter<any> = new EventEmitter();
+  protected isLoaded: boolean;
+  public news: object[];
 
-  constructor() { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
+    this.http.getData('http://172.20.132.174:3005/news').subscribe((data: Array<object>) => {
+        this.news = data;
+        this.isLoaded = true;
+        console.log(this.news);
+      },
+      (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );
   }
 
 }
