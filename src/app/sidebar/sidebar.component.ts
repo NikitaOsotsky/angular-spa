@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.getData().subscribe((data: Array<string>) => {
+    this.http.getData(null).subscribe((data: Array<string>) => {
       this.menu = data;
       this.isLoaded = true;
     },
