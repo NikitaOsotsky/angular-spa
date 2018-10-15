@@ -19,6 +19,7 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.news) { return; }
     this.http.getData('http://172.20.132.174:3005/news').subscribe((data: Array<object>) => {
         this.news = data;
         this.isLoaded = true;
