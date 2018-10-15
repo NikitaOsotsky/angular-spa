@@ -13,6 +13,11 @@ export class NewsComponent implements OnInit {
 
   constructor(private http: HttpService) { }
 
+  public check(obj, prop) {
+    if (obj.hasOwnProperty(prop)) { return obj[prop]; }
+    return false;
+  }
+
   ngOnInit() {
     this.http.getData('http://172.20.132.174:3005/news').subscribe((data: Array<object>) => {
         this.news = data;
