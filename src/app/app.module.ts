@@ -18,6 +18,7 @@ import { NewsComponent } from './pages/news/news.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ErrorComponent } from './error/error.component';
 import {HttpService} from './http.service';
+import { FilterComponent } from './filter/filter.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     AboutComponent,
     NewsComponent,
     PageNotFoundComponent,
-    ErrorComponent
+    ErrorComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
