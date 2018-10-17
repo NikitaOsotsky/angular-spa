@@ -13,6 +13,9 @@ export class NewsComponent implements OnInit {
 
   constructor(private http: HttpService) { }
 
+  private itemsCount = 6;
+  private filterText = '';
+
   public check(obj, prop) {
     if (obj.hasOwnProperty(prop)) { return obj[prop]; }
     return false;
@@ -26,6 +29,18 @@ export class NewsComponent implements OnInit {
         console.log(this.news);
       },
       (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );
+  }
+
+  public newCountHandler(event: any) {
+    this.itemsCount = event.message;
+  }
+
+  public newFilterHandler(event: any) {
+    this.filterText = event.message;
+    this.filterBlocks();
+  }
+
+  private filterBlocks() {
   }
 
 }
