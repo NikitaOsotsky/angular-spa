@@ -1,11 +1,11 @@
 <div class="filter">
   <label>Filter:
-    <input (change)="changeHandler()" type="text" name="filter-box" required
+    <input (input)="changeHandler()" type="text" name="filter-box" required
     minLength="1" maxLength="4"
     placeholder="Enter first letters"/>
   </label>
   <label>Items on page:
-    <input (change)="changeHandler()" type="number" name="items-count" required
+    <input (itput)="changeHandler()" type="number" name="items-count" required
     min="4" max="10"/>
   </label>
 </div>
