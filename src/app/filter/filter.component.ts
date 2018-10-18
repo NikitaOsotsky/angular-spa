@@ -27,11 +27,11 @@ export class FilterComponent implements OnInit {
   }
 
   private filterBoxChanged(value) {
-    this.itemsCountOnPage.emit(Number(value));
+    this.textFilterOnPage.emit(String(value));
   }
 
   private itemsCountChanged(value) {
-    this.textFilterOnPage.emit(String(value));
+    this.itemsCountOnPage.emit(Number(value));
   }
 
 }
