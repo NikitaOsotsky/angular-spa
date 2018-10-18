@@ -10,6 +10,7 @@ export class NewsComponent implements OnInit {
   @Output() error: EventEmitter<any> = new EventEmitter();
   protected isLoaded: boolean;
   public news: object[];
+  public filteredNews: object[] = [];
 
   constructor(private http: HttpService) { }
 
@@ -25,22 +26,28 @@ export class NewsComponent implements OnInit {
     if (this.news) { return; }
     this.http.getData('http://172.20.132.174:3005/news').subscribe((data: Array<object>) => {
         this.news = data;
+        this.filteredNews = data;
         this.isLoaded = true;
-        console.log(this.news);
       },
       (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );
   }
 
-  public newCountHandler(event: any) {
-    this.itemsCount = event.message;
+  public newCountHandler(filter: number) {
+    this.itemsCount = filter;
   }
 
-  public newFilterHandler(event: any) {
-    this.filterText = event.message;
+  public newFilterHandler(filter: string) {
+    this.filterText = filter;
     this.filterBlocks();
   }
 
   private filterBlocks() {
+    this.filteredNews = [];
+    for (const item of this.news) {
+      if (this.check(item, 'name').toLowerCase().includes(this.filterText.toLowerCase())) {
+        this.filteredNews.push(item);
+      }
+    }
   }
 
 }
