@@ -18,7 +18,6 @@ export class FilterComponent implements OnInit {
   public changeHandler() {
     this.current = event.target;
     if ('name' in this.current) { this.currentName = this.current.name; }
-    console.log(this.currentName);
     switch (this.currentName) {
       case 'filter-box': this.filterBoxChanged(this.current.value); break;
       case 'items-count': this.itemsCountChanged(this.current.value); break;
