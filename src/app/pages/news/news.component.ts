@@ -9,12 +9,12 @@ import {HttpService} from '../../http.service';
 export class NewsComponent implements OnInit {
   @Output() error: EventEmitter<any> = new EventEmitter();
   protected isLoaded: boolean;
+  public itemsCount = 6;
   public news: object[];
   public filteredNews: object[] = [];
 
   constructor(private http: HttpService) { }
 
-  protected itemsCount = 6;
   private filterText = '';
 
   public check(obj, prop) {
@@ -39,6 +39,10 @@ export class NewsComponent implements OnInit {
   public newFilterHandler(filter: string) {
     this.filterText = filter;
     this.filterBlocks();
+  }
+
+  public paginationHandler(array: object[]) {
+    this.filteredNews = array;
   }
 
   private filterBlocks() {
