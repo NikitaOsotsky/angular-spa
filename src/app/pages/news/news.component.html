@@ -8,5 +8,5 @@
       <a [routerLink] = "['./' + check(item, 'name').toLowerCase()]" routerLinkActive="active"> more...</a>
     </p>
   </div>
-  <!--<app-pagination></app-pagination>-->
+  <app-pagination [itemsOnPage]="itemsCount" [blocks]="filteredNews"></app-pagination>
 </div>
