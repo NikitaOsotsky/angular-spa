@@ -1,7 +1,7 @@
 <app-spin *ngIf="!isLoaded"></app-spin>
 <div *ngIf="isLoaded" class="news">
   <app-filter (itemsCountOnPage)="newCountHandler($event)" (textFilterOnPage)="newFilterHandler($event)"></app-filter>
-  <div *ngFor="let item of news" class="article short-box">
+  <div *ngFor="let item of filteredNews" class="article short-box">
     <h3>{{ check(item, 'name') }}</h3>
     <p>
       {{ check(item, 'text') }}
