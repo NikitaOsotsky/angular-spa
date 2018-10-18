@@ -14,7 +14,7 @@ export class NewsComponent implements OnInit {
 
   constructor(private http: HttpService) { }
 
-  private itemsCount = 6;
+  protected itemsCount = 6;
   private filterText = '';
 
   public check(obj, prop) {
