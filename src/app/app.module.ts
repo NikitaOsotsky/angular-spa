@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ErrorComponent } from './error/error.component';
 import {HttpService} from './http.service';
 import { FilterComponent } from './filter/filter.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     NewsComponent,
     PageNotFoundComponent,
     ErrorComponent,
-    FilterComponent
+    FilterComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
