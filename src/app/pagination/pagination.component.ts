@@ -28,10 +28,6 @@ export class PaginationComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  private static isInteger(num) {
-    return (num ^ 0) === num;
-  }
-
   ngOnInit() {
   }
 
@@ -43,7 +39,7 @@ export class PaginationComponent implements OnInit, OnChanges {
 
   private breakToPages(items: Array<object>) {
     let a = this.itemsOnPage || 6;
-    a = (PaginationComponent.isInteger(+a) && a > 0) ? +a : 6;
+    a = (Number.isInteger(+a) && a > 0) ? +a : 6;
     this.newItems = [[]];
     for (let i = 0, j = 0; i < items.length; i++) {
       if (!items[i]) {
