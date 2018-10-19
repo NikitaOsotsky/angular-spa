@@ -28,6 +28,7 @@ export class NewsComponent implements OnInit {
     this.http.getData('http://172.20.132.174:3005/news').subscribe((data: Array<object>) => {
         this.news = data;
         this.itemsCount = 6;
+        this.filterBlocks();
         this.isLoaded = true;
       },
       (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );
@@ -44,17 +45,16 @@ export class NewsComponent implements OnInit {
 
   public paginationHandler(array: object[]) {
     this.paginatedNews = array;
-    this.filterBlocks();
+    this.cdr.detectChanges();
   }
 
   private filterBlocks() {
     this.filteredNews = [];
-    for (const item of this.paginatedNews) {
+    for (const item of this.news) {
       if (this.check(item, 'name').toLowerCase().includes(this.filterText.toLowerCase())) {
         this.filteredNews.push(item);
       }
     }
-    this.cdr.detectChanges();
   }
 
 }
