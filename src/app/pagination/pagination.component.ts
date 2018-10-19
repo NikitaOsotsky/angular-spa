@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import index from '@angular/cli/lib/cli';
 
 @Component({
   selector: 'app-pagination',
@@ -21,8 +22,9 @@ export class PaginationComponent implements OnInit, OnChanges {
    */
   @Output() paginatedItems = new EventEmitter();
 
-  private newItems = [[]];
+  protected newItems = [[]];
   protected currentPage = 0;
+  protected target: any = undefined;
 
   constructor() { }
 
@@ -34,11 +36,12 @@ export class PaginationComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.breakToPages(this.blocks));
+    this.currentPage = 0;
     this.paginatedItems.emit(this.breakToPages(this.blocks)[this.currentPage]);
+    this.moveToPage(this.currentPage, undefined);
   }
 
-  private breakToPages(items) {
+  private breakToPages(items: Array<object>) {
     let a = this.itemsOnPage || 6;
     a = (PaginationComponent.isInteger(+a) && a > 0) ? +a : 6;
     this.newItems = [[]];
@@ -57,6 +60,24 @@ export class PaginationComponent implements OnInit, OnChanges {
       }
     }
     return this.newItems;
+  }
+
+  protected moveToPage(page: number, event: any) {
+    if (!event) {
+      event = {};
+      event.target = document.querySelector('.li-default');
+      if (!event.target) { return false; }
+      event.target.className = 'li-active';
+      this.target = event.target;
+      return false;
+    }
+    this.currentPage = page;
+    event.target.className = 'li-active';
+    try {
+      this.target.className = 'li-default';
+    } catch (error) {}
+    this.target = event.target;
+    this.paginatedItems.emit(this.newItems[this.currentPage]);
   }
 
 }

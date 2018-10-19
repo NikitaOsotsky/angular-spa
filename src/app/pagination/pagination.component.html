@@ -1,3 +1,8 @@
-<p>
-  pagination works!
-</p>
+<div class="pagination">
+  <ul>
+    <li class="li-default" *ngFor="let item of newItems"
+        (click)="moveToPage(newItems.indexOf(item), $event)">
+      {{newItems.indexOf(item)+1}}
+    </li>
+  </ul>
+</div>
