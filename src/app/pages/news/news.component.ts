@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ChangeDetectorRef} from '@angular/core';
 import {HttpService} from '../../http.service';
 
 @Component({
@@ -9,11 +9,12 @@ import {HttpService} from '../../http.service';
 export class NewsComponent implements OnInit {
   @Output() error: EventEmitter<any> = new EventEmitter();
   protected isLoaded: boolean;
-  public itemsCount = 6;
+  public itemsCount: number = undefined;
   public news: object[];
-  public filteredNews: object[] = [];
+  public paginatedNews: object[];
+  public filteredNews: object[];
 
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private cdr: ChangeDetectorRef) { }
 
   private filterText = '';
 
@@ -26,7 +27,7 @@ export class NewsComponent implements OnInit {
     if (this.news) { return; }
     this.http.getData('http://172.20.132.174:3005/news').subscribe((data: Array<object>) => {
         this.news = data;
-        this.filteredNews = data;
+        this.itemsCount = 6;
         this.isLoaded = true;
       },
       (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );
@@ -42,16 +43,18 @@ export class NewsComponent implements OnInit {
   }
 
   public paginationHandler(array: object[]) {
-    this.filteredNews = array;
+    this.paginatedNews = array;
+    this.filterBlocks();
   }
 
   private filterBlocks() {
     this.filteredNews = [];
-    for (const item of this.news) {
+    for (const item of this.paginatedNews) {
       if (this.check(item, 'name').toLowerCase().includes(this.filterText.toLowerCase())) {
         this.filteredNews.push(item);
       }
     }
+    this.cdr.detectChanges();
   }
 
 }
