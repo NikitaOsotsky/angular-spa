@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-docs',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./docs.component.css']
 })
 export class DocsComponent implements OnInit {
-
-  constructor() { }
+  private data: any;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.data = this.route.snapshot.data;
+    alert(this.data.message);
   }
 
 }
