@@ -12,10 +12,10 @@ import { HnResolver } from './hn.resolver';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'docs', component: DocsComponent, resolve: { message: HnResolver } },
+  { path: 'docs', component: DocsComponent },
   { path: 'examples', component: ExamplesComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'news', component: NewsComponent },
+  { path: 'news', component: NewsComponent, resolve: { HnResolver } },
   { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
