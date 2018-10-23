@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, ChangeDetectorRef} from '@angular/core';
 import {HttpService} from '../../http.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -14,7 +15,7 @@ export class NewsComponent implements OnInit {
   public paginatedNews: object[];
   public filteredNews: object[];
 
-  constructor(private http: HttpService, private cdr: ChangeDetectorRef) { }
+  constructor(private http: HttpService, private cdr: ChangeDetectorRef, private route: ActivatedRoute) { }
 
   private filterText = '';
 
@@ -24,14 +25,18 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.news) { return; }
-    this.http.getData('http://172.20.132.174:3005/news').subscribe((data: Array<object>) => {
+    /*this.http.getData('news').subscribe((data: Array<object>) => {
         this.news = data;
         this.itemsCount = 6;
         this.filterBlocks();
         this.isLoaded = true;
       },
-      (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );
+      (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );*/
+    this.news = this.route.snapshot.data.HnResolver;
+    console.log(this.news);
+    this.itemsCount = 6;
+    this.filterBlocks();
+    this.isLoaded = true;
   }
 
   public newCountHandler(filter: number) {
