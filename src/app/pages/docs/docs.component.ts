@@ -7,12 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./docs.component.css']
 })
 export class DocsComponent implements OnInit {
-  private data: any;
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-    this.data = this.route.snapshot.data;
-    alert(this.data.message);
   }
 
 }
