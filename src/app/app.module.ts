@@ -19,6 +19,7 @@ import { ErrorComponent } from './error/error.component';
 import {HttpService} from './http.service';
 import { FilterComponent } from './filter/filter.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
