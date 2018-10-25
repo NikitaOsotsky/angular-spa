@@ -12,7 +12,7 @@ export class HttpService {
     switch (componentName) {
       case 'news': url = this.newsLink; break;
       case 'menu': url = this.menuLink; break;
-      default: url = undefined;
+      default: return;
     }
     return this.http.get(url);
   }
