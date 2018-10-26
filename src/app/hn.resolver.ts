@@ -7,14 +7,13 @@ import {HttpService} from './http.service';
 export class HnResolver implements Resolve<any> {
   private data: any;
   constructor(private httpService: HttpService) {
-    console.log(this); }
+ }
 
   resolve(route: ActivatedRouteSnapshot) {
-    console.log(route);
     const name: string = route.routeConfig.path;
-    this.httpService.getData(name).subscribe((data: Array<object>) => {
+    this.httpService.getData(name, false).subscribe((data: Array<object>) => {
       this.data = data;
     });
-    return this.data || this.httpService.getData(name);
+    return this.data || this.httpService.getData(name, true);
   }
 }
