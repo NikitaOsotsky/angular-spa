@@ -16,9 +16,10 @@ import { AboutComponent } from './pages/about/about.component';
 import { NewsComponent } from './pages/news/news.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ErrorComponent } from './error/error.component';
-import {HttpService} from './http.service';
+import { HttpService } from './http.service';
 import { FilterComponent } from './filter/filter.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SpinService } from './shared/spin/spin.service';
 import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
@@ -45,7 +46,7 @@ import { httpInterceptorProviders } from './http-interceptors';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [HttpService, httpInterceptorProviders],
+  providers: [HttpService, SpinService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
