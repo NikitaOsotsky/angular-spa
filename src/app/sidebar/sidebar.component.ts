@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpService} from '../http.service';
 
 @Component({
@@ -22,10 +22,10 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.getData('menu').subscribe((data: Array<string>) => {
+    this.http.getData('menu', false).subscribe((data: Array<string>) => {
       this.menu = data;
       this.isLoaded = true;
     },
-      (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );
+      (error: any) => {this.error.emit(error);  this.isLoaded = true; } );
   }
 }
