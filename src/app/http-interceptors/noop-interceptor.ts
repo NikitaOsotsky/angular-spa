@@ -4,16 +4,19 @@ import {
 } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import {hasOwnProperty} from 'tslint/lib/utils';
+import { SpinService } from '../shared/spin/spin.service';
 
-/** Pass untouched request through to the next request handler. */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class NoopInterceptor implements HttpInterceptor {
+  constructor(private SpService: SpinService) {
+    this['instance'] = Date.now(); /*test*/
+    console.log(this);
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
     if (req.method === 'GET' && req.params.hasOwnProperty('needSpinner') && req.params['needSpinner']) {
-      console.log(req);
+      this.SpService.activateModalSpinner();
     }
     return next.handle(req);
   }
