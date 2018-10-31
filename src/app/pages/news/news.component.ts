@@ -1,6 +1,5 @@
-import {Component, EventEmitter, OnInit, Output, ChangeDetectorRef} from '@angular/core';
-import {HttpService} from '../../http.service';
-import {ActivatedRoute} from '@angular/router';
+import { Component, EventEmitter, OnInit, Output, ChangeDetectorRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -15,7 +14,7 @@ export class NewsComponent implements OnInit {
   public paginatedNews: object[];
   public filteredNews: object[];
 
-  constructor(private http: HttpService, private cdr: ChangeDetectorRef, private route: ActivatedRoute) { }
+  constructor(private cdr: ChangeDetectorRef, private route: ActivatedRoute) { }
 
   private filterText = '';
 
@@ -25,15 +24,7 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*this.http.getData('news').subscribe((data: Array<object>) => {
-        this.news = data;
-        this.itemsCount = 6;
-        this.filterBlocks();
-        this.isLoaded = true;
-      },
-      (error: any) => {console.log(error); this.error.emit(error);  this.isLoaded = true; } );*/
     this.news = this.route.snapshot.data.HnResolver;
-    console.log(this.news);
     this.itemsCount = 6;
     this.filterBlocks();
     this.isLoaded = true;
