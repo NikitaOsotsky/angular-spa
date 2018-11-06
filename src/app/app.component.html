@@ -2,3 +2,9 @@
 <app-header></app-header>
 <app-main (error)="errorHandler($event)"></app-main>
 <app-footer></app-footer>
+<app-spin
+  [hidden]="!spinnerStatus"
+  (isSpinnerActive)="spinnerHandler($event)"
+>
+
+</app-spin>
