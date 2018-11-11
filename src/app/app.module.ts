@@ -21,6 +21,9 @@ import { FilterComponent } from './filter/filter.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { SpinService } from './shared/spin/spin.service';
 import { httpInterceptorProviders } from './http-interceptors';
+import {AuthService} from './auth.service';
+import {AuthGuard} from './auth-guard.service';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +42,15 @@ import { httpInterceptorProviders } from './http-interceptors';
     PageNotFoundComponent,
     ErrorComponent,
     FilterComponent,
-    PaginationComponent
+    PaginationComponent,
+    AdminComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule
   ],
-  providers: [HttpService, SpinService, httpInterceptorProviders],
+  providers: [HttpService, SpinService, httpInterceptorProviders, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
