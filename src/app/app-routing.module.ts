@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import {AdminComponent} from './pages/admin/admin.component';
 
 import { HnResolver } from './hn.resolver';
-import {AuthGuard} from './auth-guard.service';
+import { AuthGuard } from './auth-guard.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
