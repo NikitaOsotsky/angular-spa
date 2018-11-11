@@ -3,8 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
-  private newsLink = 'http://172.20.132.174:3005/news';
-  private menuLink = 'http://172.20.132.174:3005/menu';
+  private newsLink = 'http://localhost:3005/news';
+  private menuLink = 'http://localhost:3005/menu';
   constructor(private http: HttpClient) { }
 
   public getData(componentName: string, needSpinner: boolean) {
