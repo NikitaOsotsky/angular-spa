@@ -24,6 +24,7 @@ import { httpInterceptorProviders } from './http-interceptors';
 import {AuthService} from './auth.service';
 import {AuthGuard} from './auth-guard.service';
 import { AdminComponent } from './pages/admin/admin.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AdminComponent } from './pages/admin/admin.component';
     ErrorComponent,
     FilterComponent,
     PaginationComponent,
-    AdminComponent
+    AdminComponent,
+    SigninComponent
   ],
   imports: [
     AppRoutingModule,
