@@ -8,6 +8,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { NewsComponent } from './pages/news/news.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import {AdminComponent} from './pages/admin/admin.component';
+import {SigninComponent} from './signin/signin.component';
 
 import { HnResolver } from './hn.resolver';
 import { AuthGuard } from './auth-guard.service';
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'docs', component: DocsComponent },
   { path: 'examples', component: ExamplesComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'signin', component: SigninComponent }, /*way for login page*/
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent, resolve: { HnResolver } },
   { path: '**', component: PageNotFoundComponent }
