@@ -161,5 +161,15 @@
       "author": "Admin"
     }
   ],
-  "menu": ["Home", "Docs", "Examples", "About", "News", "Admin"]
+  "menu": ["Home", "Docs", "Examples", "About", "News", "Admin"],
+  "accounts": [
+    {
+      "name": "Admin",
+      "password": "Admin"
+    },
+    {
+      "name": "Guest",
+      "password": "Guest"
+    }
+  ]
 }
