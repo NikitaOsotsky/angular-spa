@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
-  constructor() { }
+  private submitted = false;
+  constructor(auth: AuthService) { }
 
   ngOnInit() {
+  }
+
+  protected onSubmit() {
+    this.submitted = true;
+    alert();
+    return false;
   }
 
 }
