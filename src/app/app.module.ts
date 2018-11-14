@@ -21,10 +21,11 @@ import { FilterComponent } from './filter/filter.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { SpinService } from './shared/spin/spin.service';
 import { httpInterceptorProviders } from './http-interceptors';
-import {AuthService} from './auth.service';
-import {AuthGuard} from './auth-guard.service';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 import { AdminComponent } from './pages/admin/admin.component';
 import { SigninComponent } from './signin/signin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SigninComponent } from './signin/signin.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [HttpService, SpinService, httpInterceptorProviders, AuthService, AuthGuard],
   bootstrap: [AppComponent]
