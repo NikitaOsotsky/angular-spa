@@ -3,8 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
-  private newsLink = 'http://localhost:3005/news';
-  private menuLink = 'http://localhost:3005/menu';
+  private newsLink = 'https://my-json-server.typicode.com/NikitaOsotsky/angular-spa/news';
+  private menuLink = 'https://my-json-server.typicode.com/NikitaOsotsky/angular-spa/menu';
   constructor(private http: HttpClient) { }
 
   public getData(componentName: string, needSpinner: boolean) {
