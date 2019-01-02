@@ -1,0 +1,11 @@
+<aside class="sidebar">
+  <section>
+    <h3>Menu</h3>
+    <app-spin *ngIf="!isLoaded"></app-spin>
+    <ul  *ngIf="isLoaded">
+      <li *ngFor="let item of menu">
+        <a routerLink={{getRout(item)}} routerLinkActive="active">{{item}}</a>
+      </li>
+    </ul>
+  </section>
+</aside>

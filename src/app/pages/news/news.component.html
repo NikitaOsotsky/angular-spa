@@ -1,0 +1,15 @@
+<app-spin *ngIf="!isLoaded"></app-spin>
+<div *ngIf="isLoaded" class="news">
+  <app-filter (itemsCountOnPage)="newCountHandler($event)" (textFilterOnPage)="newFilterHandler($event)"></app-filter>
+  <div *ngFor="let item of paginatedNews" class="article short-box">
+    <h3>{{ check(item, 'name') }}</h3>
+    <p>
+      {{ check(item, 'text') }}
+      <a [routerLink] = "['./' + check(item, 'name').toLowerCase()]" routerLinkActive="active"> more...</a>
+    </p>
+  </div>
+  <app-pagination [itemsOnPage]="itemsCount"
+                  [blocks]="filteredNews"
+                  (paginatedItems)="paginationHandler($event)">
+  </app-pagination>
+</div>
