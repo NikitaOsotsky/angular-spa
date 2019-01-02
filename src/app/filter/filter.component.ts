@@ -15,8 +15,8 @@ export class FilterComponent implements OnInit {
   ngOnInit() {
   }
 
-  public changeHandler() {
-    this.current = event.target;
+  public changeHandler(e) {
+    this.current = e.target;
     if ('name' in this.current) { this.currentName = this.current.name; }
     switch (this.currentName) {
       case 'filter-box': this.filterBoxChanged(this.current.value); break;
